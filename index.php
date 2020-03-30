@@ -147,28 +147,6 @@ class RSSNotifier {
   }
 }
 
-$RSSNotifier = new RSSNotifier;
-$RSSNotifier->twillio = [
-  'sid'        => 'AC692f8606b105e8135d3fdfca2213fa44',
-  'auth_token' => 'bb1efaa5a09a5ab32a8ca834f9afbd51',
-  'number'     => '+12062037839'
-];
-$RSSNotifier->notifiers = [
-  'ben' => [
-    'numbers' => ['+14692782695'],
-    'feeds'   => [
-      'upwork_domestic' => 'https://www.upwork.com/ab/feed/topics/rss?securityToken=4f829a7a1576cb2283d09961c1afdcb9ff8bb8ca6f03ebcda17b501df0795a4d1c305aa1bd67522a773253a1b245b749f333bf1bdc51707a82da2ce2023a00dd&userUid=950402002326204416&orgUid=950402002330398721&sort=local_jobs_on_top&topic=domestic',
-      'upwork_recommended' => 'https://www.upwork.com/ab/feed/topics/rss?securityToken=4f829a7a1576cb2283d09961c1afdcb9ff8bb8ca6f03ebcda17b501df0795a4d1c305aa1bd67522a773253a1b245b749f333bf1bdc51707a82da2ce2023a00dd&userUid=950402002326204416&orgUid=950402002330398721&sort=local_jobs_on_top&topic=recommended'
-    ]
-  ]
-];
-
-if ( ! empty( $_REQUEST['debug'] ) ) {
-  $RSSNotifier->debug = true;
-}
-
-$RSSNotifier->run();
-
 if ( $RSSNotifier->debug ) {
   echo '<ol>';
   foreach( $RSSNotifier->log as $key => $log ) {
